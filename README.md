@@ -21,17 +21,21 @@ This project brings everything together: AD and DNS ([01](https://github.com/Big
 
 ## Timeline at a glance
 ```mermaid
-timeline
-    title Monday 2026-11-23 · MI-2026-001
-    02:07 : Backup writes 41 GB to C:
-    03:41 : C: full, AD DS and DNS failing
-    06:10 : Monitoring alert by e-mail (unread)
-    07:05 : First ticket
-    07:22 : P1 declared, update 1
-    07:48 : Disk freed, AD DS restarted
-    08:02 : Laptops fail Kerberos (clock +7 min)
-    08:14 : NTP fixed on PDC emulator
-    08:52 : All-clear, update 5
+flowchart LR
+    A["02.07<br/>Backup writes<br/>41 GB to C:"] --> B["03.41<br/>C: full, AD DS<br/>and DNS failing"]
+    B --> C["06.10<br/>Alert by e-mail<br/>(unread)"]
+    C --> D["07.05<br/>First ticket"]
+    D --> E["07.22<br/>P1 declared<br/>Update 1"]
+    E --> F["07.48<br/>Disk freed<br/>AD DS restarted"]
+    F --> G["08.02<br/>Laptops fail Kerberos<br/>clock +7 min"]
+    G --> H["08.14<br/>NTP fixed on<br/>PDC emulator"]
+    H --> I["08.52<br/>All-clear<br/>Update 5"]
+    classDef n fill:#0B1F3A,stroke:#5FB3FF,color:#fff
+    classDef bad fill:#B42318,stroke:#F04438,color:#fff
+    classDef good fill:#1B5E20,stroke:#66BB6A,color:#fff
+    class A,C,D,E,F,H n
+    class B,G bad
+    class I good
 ```
 
 ## Documents
